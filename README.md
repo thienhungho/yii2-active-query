@@ -1,6 +1,6 @@
 Yii2 Active Query
 ====================
-Active Queryfor Yii2
+Active Query for Yii2
 
 Installation
 ------------

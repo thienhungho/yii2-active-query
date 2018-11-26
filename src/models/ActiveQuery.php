@@ -31,7 +31,7 @@ class ActiveQuery extends BaseActiveQuery
      */
     public function nextRecord($id)
     {
-        $this->andWhere(['id', '>', $id]);
+        $this->andWhere(['>', 'id', $id]);
 
         return $this;
     }
@@ -43,7 +43,7 @@ class ActiveQuery extends BaseActiveQuery
      */
     public function previousRecord($id)
     {
-        $this->andWhere(['id', '<', $id]);
+        $this->andWhere(['<', 'id', $id]);
 
         return $this;
     }
@@ -84,5 +84,32 @@ class ActiveQuery extends BaseActiveQuery
     public function one($db = null)
     {
         return parent::one($db);
+    }
+
+    /**
+     * @param $column
+     * @param $start
+     * @param $end
+     *
+     * @return $this
+     */
+    public function between($column, $start, $end)
+    {
+        $this->andWhere(['between', $column, $start, $end]);
+
+        return $this;
+    }
+
+    /**
+     * @param $column
+     * @param $value
+     *
+     * @return $this
+     */
+    public function like($column, $value)
+    {
+        $this->andWhere(['like', $column, $value]);
+
+        return $this;
     }
 }

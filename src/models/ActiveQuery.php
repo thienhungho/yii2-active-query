@@ -69,6 +69,30 @@ class ActiveQuery extends BaseActiveQuery
     }
 
     /**
+     * @param $column
+     * @return $this
+     */
+    public function orderByASC($column = 'id')
+    {
+        $this->orderBy([$column => SORT_ASC]);
+
+        return $this;
+    }
+
+    /**
+     * @param string $column
+     * @return $this
+     */
+    public function orderByDESC($column = 'id')
+    {
+        $this->orderBy([$column => SORT_DESC]);
+
+        return $this;
+    }
+
+
+
+    /**
      * @inheritdoc
      * @return \thienhungho\PostManagement\modules\PostBase\query\Post[]|array
      */
